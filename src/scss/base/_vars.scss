@@ -1,0 +1,14 @@
+// Colors
+$primary: #67f24b;
+$secondary: #04253d;
+$light: lighten($secondary, 80%);
+$dark: darken($secondary, 2%);
+$mint: #c4eebb;
+$blue: #2e5d7f;
+$gray-light: #dedee1;
+$gray: #a9a9b1;
+$gray-dark: #3d434d;
+
+// Fonts
+$base-font: 'Muli', sans-serif;
+$headings-font: 'Barlow Condensed', sans-serif;

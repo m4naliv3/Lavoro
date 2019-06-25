@@ -1,0 +1,10 @@
+// Barlow Condensed - Headings
+// Muli - Text
+// via Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Barlow+Condensed:400,500,600,600i,700,700i,800|Muli:200,300,300i,400,600,600i,700,800&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $headings-font;
+	font-weight: 600;
+	text-transform: uppercase;
+}

@@ -1,0 +1,29 @@
+body {
+	font-family: $base-font;
+	font-size: 1.6rem;
+	font-style: normal;
+	background: $secondary;
+	margin: 0;
+}
+
+.colors {
+	display: flex;
+	flex-wrap: nowrap;
+	background: #fff;
+	padding: 15px;
+
+	> div {
+		padding: 40px;
+
+		&.primary { background: $primary; }
+		&.green { background: $mint; }
+		&.secondary { background: $secondary; }
+		&.blue { background: $blue; }
+		&.light { background: $light; }
+		&.dark { background: $dark; }
+		&.gray-light { background: $gray-light; }
+		&.gray { background: $gray; }
+		&.gray-dark { background: $gray-dark; }
+
+	}
+}

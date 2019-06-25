@@ -1,10 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import './index.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCheckSquare, faComments } from '@fortawesome/free-solid-svg-icons';
+import './App.scss';
 import * as serviceWorker from './serviceWorker';
 import {store} from './store'
 import Dashboard from './dashboard';
+
+// Builds FontAwesome Library to use font icons throughout
+library.add(faCheckSquare, faComments);
 
 ReactDOM.render(
   <Provider store={store}>
