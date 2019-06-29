@@ -1,7 +1,12 @@
+html {
+	font-size: 62.5%;
+}
+
 body {
 	font-family: $base-font;
 	font-size: 1.6rem;
 	font-style: normal;
+	font-weight: 400;
 	background: #fff;
 	color: $gray-dark;
 	margin: 0;

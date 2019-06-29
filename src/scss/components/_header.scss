@@ -1,0 +1,29 @@
+.header {
+	padding: 1.5rem;
+
+	.logo {
+
+		img {
+			max-height: 70px;
+		}
+	}
+
+	.account-phone {
+		padding-top: 10px;
+		margin-left: 85px;
+
+		p {			
+			font-size: 2rem;
+
+			svg {
+				font-size: 1.8rem;
+				vertical-align: baseline;
+				color: darken($gray, 10%);
+			}
+
+			span {
+				color: $primary;
+			}
+		}
+	}
+}
