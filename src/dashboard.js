@@ -19,7 +19,6 @@ class Dashboard extends Component {
     // }
     return (
       <div className="Main Dashboard">
-        <h1><FontAwesomeIcon icon="comments" /> Lavoro Chat</h1>
         <Account />
         <h2>Contact Map goes here</h2>
         <h3>Provider for contact list (google, outlook, Lavoro contact)</h3>
