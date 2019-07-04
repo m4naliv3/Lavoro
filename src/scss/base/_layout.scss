@@ -1,0 +1,50 @@
+.main-dashboard {
+	display: flex;
+	flex-wrap: nowrap;
+
+	.container {
+		flex: 1 1 auto;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+
+		.ui-scroll {
+			flex: 1 1 auto;
+			background: $gray-light;
+			overflow-y: scroll;
+
+			&::-webkit-scrollbar {
+			    width: 1em;
+			}
+			 
+			&::-webkit-scrollbar-track {
+			    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+			}
+			 
+			&::-webkit-scrollbar-thumb {
+			  background-color: darkgrey;
+			  outline: 1px solid slategrey;
+			}
+		}
+	}
+
+	.right-sidebar {
+		flex: 0 1 auto;
+		height: 100vh;
+		width: 0;
+		transition: width 0.4s ease-in;
+
+		&.expanded {
+			width: 350px;
+
+			.container {
+				@include opacity(1);
+			}
+		}
+
+		.container {
+			@include opacity(0);
+			transition: opacity 0.4s ease-in;
+		}
+	}
+}

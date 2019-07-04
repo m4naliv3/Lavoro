@@ -3,7 +3,7 @@ import { commsClient } from './comms_client';
 import {SetMessages} from './actions';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Account from './components/account';
+import Sidebar from './containers/right-sidebar';
 import ContactList from './components/contact-list';
 import Header from './components/header';
 import MessageList from './components/message-list';
@@ -20,22 +20,19 @@ class Dashboard extends Component {
     return (
       <div className="main-dashboard">
         <div className="container">
-          <div className="content ui-scroll">
-            <Header />
-            <h2>Contact Map goes here</h2>
-            <h3>Provider for contact list (google, outlook, Lavoro contact)</h3>
-            <ContactList />
-            <h2>Messaging Canvas</h2>
-            <MessageList />
-            <h2>Lavoro Functions</h2>
-          </div>
-          <div className="right-sidebar">
-            <Account />
-            <input type="button" value="Auto-Reply" />
-            <input type="button" value="OOO Message" />
-            <input type="button" value="Forwarding Settings" />
+          <Header />
+          <div className="ui-scroll">
+            <div className="content">              
+              <h2>Contact Map goes here</h2>
+              <h3>Provider for contact list (google, outlook, Lavoro contact)</h3>
+              <ContactList />
+              <h2>Messaging Canvas</h2>
+              <MessageList />
+              <h2>Lavoro Functions</h2>
+            </div>
           </div>
         </div>
+        <Sidebar />
       </div>
     );
   }

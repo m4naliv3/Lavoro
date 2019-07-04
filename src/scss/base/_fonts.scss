@@ -7,12 +7,13 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: $headings-font;
 	font-weight: 600;
 	text-transform: uppercase;
+	margin: 0 0 1em;
 }
 
 p {
 	font-size: 1.6rem;
 	line-height: 1.4;
-	margin: 0 0 1rem;
+	margin: 0 0 1em;
 
 	strong {
 		font-weight: 600;

@@ -1,8 +1,17 @@
+// Helpful Utilities
+@import 'scss/utils/mixins'; /* use @include */
+@import 'scss/utils/placeholders'; /* use @extend */
+
 // Base Variables & Styles
 @import-normalize; /* bring in normalize.css styles */
 @import 'scss/base/vars';
 @import 'scss/base/fonts';
 @import 'scss/base/theme';
+@import 'scss/base/buttons';
+@import 'scss/base/layout';
+
+// Container Styles
+@import 'scss/containers/sidebar';
 
 // Component Styles
 @import 'scss/components/header';

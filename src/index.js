@@ -2,14 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faMobileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faMobileAlt, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import './App.scss';
 import * as serviceWorker from './serviceWorker';
 import {store} from './store'
 import Dashboard from './dashboard';
 
 // Builds FontAwesome Library to use font icons throughout
-library.add(faMobileAlt);
+library.add(faMobileAlt, faBars, faTimes, faInstagram, faTwitter);
 
 ReactDOM.render(
   <Provider store={store}>
