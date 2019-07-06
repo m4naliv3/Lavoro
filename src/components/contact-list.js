@@ -10,7 +10,7 @@ class ContactList extends Component {
 
     render(){
       if(!this.props.Contacts){
-        commsClient('contacts/1').then(r => { this.props.SetContacts(r) })
+        commsClient('Contacts/1').then(r => { this.props.SetContacts(r) })
         return null;
       }
       return (
