@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { commsClient } from './comms_client';
 import {SetMessages} from './actions';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';

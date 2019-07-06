@@ -31,7 +31,7 @@ export default class Sidebar extends Component {
 					</div>
 					<div className="tools">
 						<button className="btn btn-secondary btn-block">Auto-Reply</button>
-						<button class="btn btn-secondary btn-block">OOO Message</button>
+						<button className="btn btn-secondary btn-block">OOO Message</button>
 						<button className="btn btn-secondary btn-block">Forwarding Settings</button>
 					</div>
 					<div className="footer">

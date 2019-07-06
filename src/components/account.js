@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 class Account extends Component {
   render(){
     if(!this.props.Account){
-      commsClient('account/1').then(r => { this.props.SetAccount(r) })
+      commsClient('accounts/1').then(r => { this.props.SetAccount(r) })
       return null;
     }
     return (

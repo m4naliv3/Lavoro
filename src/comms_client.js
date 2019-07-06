@@ -1,7 +1,7 @@
 import { encodeBody } from "./functions/urlEncodeBody";
 
 export async function commsClient(path, method = 'GET', args = null){
-    var BaseUrl = 'http://lavorochatapp.azurewebsites.net/';
+    var BaseUrl = 'https://lavorochatapp.azurewebsites.net/api';
     var url = `${BaseUrl}/${path}`
 
     if(method === 'GET'){
@@ -12,7 +12,7 @@ export async function commsClient(path, method = 'GET', args = null){
         return data;
     }
     else if(method === 'POST'){
-        const headers = new Headers({"Content-Type": "application/x-www-form-urlencoded"})
+        const headers = new Headers({"Content-Type": "application/x-www-form-urlencoded","Access-Control-Request-Method": "POST"})
         var body = encodeBody(args);
         var gotFromPost = await fetch(url,{method: 'POST', headers:headers, body: body}).then(response =>{
             return response.text();
