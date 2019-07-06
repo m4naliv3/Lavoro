@@ -23,7 +23,7 @@ export default class Sidebar extends Component {
 					onClick={() => this.toggleSidebar()}>
 					{ this.renderIcon() }
 				</button>
-				<div className="container">
+				<div className="sidebar">
 					<div className="account-settings">
 						<Account />
 						<h4>Account Settings</h4>

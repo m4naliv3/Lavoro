@@ -7,23 +7,21 @@
 		height: 100vh;
 		display: flex;
 		flex-direction: column;
+		background: $gray-light;
 
-		.ui-scroll {
-			flex: 1 1 auto;
-			background: $gray-light;
-			overflow-y: scroll;
+		.content {
+			display: flex;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			padding: 1em;
 
-			&::-webkit-scrollbar {
-			    width: 1em;
+			.contacts {
+				flex: 0 1 30%;
+				margin-right: 1.5em;
 			}
-			 
-			&::-webkit-scrollbar-track {
-			    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-			}
-			 
-			&::-webkit-scrollbar-thumb {
-			  background-color: darkgrey;
-			  outline: 1px solid slategrey;
+
+			.messaging {
+				flex: 1 1 auto;
 			}
 		}
 	}
@@ -46,5 +44,24 @@
 			@include opacity(0);
 			transition: opacity 0.4s ease-in;
 		}
+	}
+}
+
+.ui-scroll {
+	max-height: calc(100vh - 250px);
+	overflow-y: scroll;
+
+	&::-webkit-scrollbar {
+	    width: 10px;
+	}
+	 
+	&::-webkit-scrollbar-track {
+	    background: $light;
+	    padding: 2px;
+	}
+	 
+	&::-webkit-scrollbar-thumb {
+		background-color: $dark;
+		outline: none;
 	}
 }

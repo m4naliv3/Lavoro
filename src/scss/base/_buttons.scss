@@ -39,6 +39,27 @@
 	}
 }
 
+.btn-tab {
+	@include gradient-directional($secondary, lighten($primary, 5%), -175deg);
+	color: #fff;
+	padding: 12px;
+	font-size: 1.2rem;
+	border-bottom: none;
+
+	&:first-child {
+		border-left: none;
+		border-radius: 3px 0 0 0;
+	}
+
+	&:last-child {
+		border-radius: 0 3px 0 0;
+	}
+
+	&:hover {
+		background-size: 300%;
+	}
+}
+
 .btn-square {
 	border-radius: 0;
 }

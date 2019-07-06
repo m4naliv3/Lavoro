@@ -4,7 +4,7 @@
 
 	.toggle {
 		position: absolute;
-		top: 20px;
+		top: 23px;
 		left: -40px;
 		width: 40px;
 		border-radius: 3px 0 0 3px;
@@ -13,13 +13,13 @@
 		padding-bottom: 15px;
 	}
 
-	.container {
+	.sidebar {
 		padding: 1em 2em;
 		height: calc(100% - 1em);
 	}
 }
 
-.right-sidebar .container {
+.right-sidebar .sidebar {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
