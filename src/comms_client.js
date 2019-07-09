@@ -11,6 +11,7 @@ export async function commsClient(path, method = 'GET', args = null){
         headers: {'Access-Control-Allow-Origin':'*'}}).then(response =>{
             return response.json();
         })
+        console.log(data, ' <-- this was returned from the EP');
         return data;
     }
     else if(method === 'POST'){
