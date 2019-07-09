@@ -1,6 +1,7 @@
 import { encodeBody } from "./functions/urlEncodeBody";
 
 export async function commsClient(path, method = 'GET', args = null){
+    console.log(path, ' <-- just hit this');
     var BaseUrl = 'https://lavorochatapp.azurewebsites.net/api';
     var url = `${BaseUrl}/${path}`
 
