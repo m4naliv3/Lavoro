@@ -19,7 +19,13 @@ class MessageList extends Component {
               <br />
               <br />
               <input type="text" className="MessagingInput" />
-              <input type="button" className="Send Button" value="Send" />
+              <input 
+                type="button" 
+                className="Send Button" 
+                value="Send" 
+                onClick={_ => {
+                  commsClient('OutgoingMessaging','POST', {MessageText: 'Hi Mike', To: this.props.ContactPhone, From: this.props.AccountPhone})
+                }}/>
           </div>
       )
     }
@@ -27,7 +33,9 @@ class MessageList extends Component {
 
 function mapStateToProps (state){ 
   return { 
-    Messages: state.Messages 
+    Messages: state.Messages,
+    ContactPhone: state.ContactPhone,
+    AccountPhone: state.AccountPhone
   } 
 }
 function mapDispatchToProps(dispatch) {

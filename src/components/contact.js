@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import { commsClient } from '../comms_client';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { SetConversation } from '../actions';
 
-export default class Contact extends Component {
+class Contact extends Component {
   render(){
     var contact = this.props.Contact;
     if(!contact) return null;
@@ -9,8 +12,8 @@ export default class Contact extends Component {
       <div 
         className="Contact-Row" 
         onClick={e => { 
-          commsClient('Conversation/' + contact.Phone).then(id => { this.props.SetConversationId(id) })
-        //comms client lookup with contact phone and the account number to return conversationId 
+          commsClient('Conversations', 'POST', {ID: this.props.Account.PhoneNumberID, Caller: contact.Phone} )
+          .then(conversation => { this.props.SetConversation(conversation) });
       }}>
         <img src={contact.Avatar} alt="Contact Person" height="5%" width="5%"/>
         <strong>{contact.ContactName}</strong>
@@ -21,3 +24,17 @@ export default class Contact extends Component {
     );
   }
 }
+
+function mapStateToProps (state){ 
+  return { 
+    Account: state.Account 
+  } 
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ 
+    SetConversation: SetConversation
+  }, dispatch);
+}
+
+export default connect (mapStateToProps, mapDispatchToProps)(Contact);

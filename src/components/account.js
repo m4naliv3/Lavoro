@@ -1,13 +1,9 @@
 import React, {Component} from 'react';
-import { commsClient } from '../comms_client';
-import {SetAccount} from '../actions';
 import {connect} from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 class Account extends Component {
   render(){
     if(!this.props.Account){
-      commsClient('accounts/1').then(r => { this.props.SetAccount(r) })
       return null;
     }
     return (
@@ -24,10 +20,5 @@ function mapStateToProps (state){
       Account: state.Account 
   } 
 }
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ 
-    SetAccount: SetAccount
-  }, dispatch);
-}
 
-export default connect (mapStateToProps, mapDispatchToProps)(Account);
+export default connect (mapStateToProps)(Account);
