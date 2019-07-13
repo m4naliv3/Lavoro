@@ -1,17 +1,14 @@
 import { encodeBody } from "./functions/urlEncodeBody";
 
 export async function commsClient(path, method = 'GET', args = null){
-    console.log(path, ' <-- just hit this');
     var BaseUrl = 'https://lavorochatapp.azurewebsites.net/api';
     var url = `${BaseUrl}/${path}`
 
     if(method === 'GET'){
-        console.log('fetching with the following url ', url)
         var data = await fetch(url, {mode: 'cors',
         headers: {'Access-Control-Allow-Origin':'*'}}).then(response =>{
             return response.json();
         })
-        console.log(data, ' <-- this was returned from the EP');
         return data;
     }
     else if(method === 'POST'){

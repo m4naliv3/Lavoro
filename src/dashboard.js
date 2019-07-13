@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {SetMessages} from './actions';
+import { SetMessages, SetAccount } from './actions';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,10 +14,6 @@ class Dashboard extends Component {
   renderList(list){ list.map(m => { return( <span>{m}</span> ) }) }
 
   render(){
-    // if(!this.props.Messages){
-    //   commsClient('messages').then(r => { this.props.SetMessages(r) })
-    //   return null;
-    // }
     return (
       <div className="main-dashboard">
         <div className="container">
@@ -62,11 +58,13 @@ class Dashboard extends Component {
 
 function mapStateToProps (state){ 
   return { 
-      Messages: state.Messages 
+      Messages: state.Messages, 
+      Account: state.Account
   } 
 }
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ 
+    SetAccount: SetAccount,
     SetMessages: SetMessages
   }, dispatch);
 }
