@@ -19,7 +19,7 @@ class MessageList extends Component {
                 className="Send Button" 
                 value="Send" 
                 onClick={_ => {
-                  commsClient('OutgoingMessaging','POST', {MessageText: 'Hi Mike', To: this.props.ContactPhone, From: this.props.AccountPhone})
+                  commsClient('OutgoingMessaging','POST', {Body: 'Hi Mike', To: this.props.ContactPhone, From: this.props.AccountPhone})
                 }}/>
           </div>
       )
