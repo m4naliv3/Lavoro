@@ -26,8 +26,6 @@ export default class Sidebar extends Component {
 				<div className="sidebar">
 					<div className="account-settings">
 						<Account />
-						<h4>Account Settings</h4>
-						<h4>Account Stuuuffffff</h4>
 					</div>
 					<div className="tools">
 						<button className="btn btn-secondary btn-block">Auto-Reply</button>
