@@ -13,6 +13,7 @@
 			display: flex;
 			flex-wrap: nowrap;
 			justify-content: space-between;
+			align-items: stretch;
 			padding: 1em;
 
 			.contacts {
@@ -50,6 +51,7 @@
 .ui-scroll {
 	max-height: calc(100vh - 250px);
 	overflow-y: scroll;
+	flex: 1;
 
 	&::-webkit-scrollbar {
 	    width: 10px;

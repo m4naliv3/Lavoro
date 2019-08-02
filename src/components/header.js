@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import logo from '../images/logo.png';
 import {connect} from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { formatPhone } from '../functions/formatPhone';
+import logo from '../images/logo.png';
+
 
 class Header extends Component {
 	render() {
@@ -11,7 +13,7 @@ class Header extends Component {
 					<img src={logo} alt="Lavoro Chat" />
 				</div>
 				<div className="account-phone">
-					<p><FontAwesomeIcon icon="mobile-alt" /> <strong>My Number:</strong> <span>{this.props.AccountPhone}</span></p>
+					<p><FontAwesomeIcon icon="mobile-alt" /> <strong>My Number:</strong> <span>{this.props.AccountPhone && formatPhone(this.props.AccountPhone)}</span></p>
 				</div>
 			</div>
 		)
