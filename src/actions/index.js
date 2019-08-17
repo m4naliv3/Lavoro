@@ -16,6 +16,18 @@ export function SetConversation(payload){
         payload: payload
     };
 }
+export function OpenContactModal(payload){
+    return{
+        type: 'OPEN_CONTACT_MODAL', 
+        payload: payload
+    };
+}
+export function SetOutboundMessage(payload){
+    return{
+        type: 'SET_OUTBOUND_MESSAGE', 
+        payload: payload
+    };
+}
 export function SetAccountPhone(payload){
     return{
         type: 'SET_ACCOUNT_PHONE', 
