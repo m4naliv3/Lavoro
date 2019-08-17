@@ -20,9 +20,9 @@ class ContactModal extends Component {
     return (
         <div className="ContactModal">
           <input placeholder='Contact Name' type='text' onInput={e => this.Name = e.target.value} />
-          <input placeholder='Title' type='text' onInput={e => this.Name = e.target.value} />
-          <input placeholder='Phone' type='text' onInput={e => this.Title = e.target.value} />
-          <input placeholder='Email' type='text' onInput={e => this.Phone = e.target.value} />
+          <input placeholder='Title' type='text' onInput={e => this.Title = e.target.value} />
+          <input placeholder='Phone' type='text' onInput={e => this.Phone = e.target.value} />
+          <input placeholder='Email' type='text' onInput={e => this.Email = e.target.value} />
           <input placeholder='Avatar' type='text' onInput={e => this.Avatar = e.target.value} />
           <input placeholder='Company' type='text' onInput={e => this.Company = e.target.value} />
           <label>Favorite</label><input placeholder='Favorite' type='checkbox' onInput={e => this.Favorite = e.target.value} />
@@ -32,7 +32,7 @@ class ContactModal extends Component {
             onClick={_ => {
                 this.props.OpenContactModal(false);
                 commsClient(
-                    'contacts',
+                    'Contacts',
                     'POST',
                     {
                         ContactName: this.Name,
@@ -42,7 +42,7 @@ class ContactModal extends Component {
                         Avatar: this.Avatar, 
                         Company: this.Company, 
                         Favorite: this.Favorite, 
-                        AccountID: this.props.Account.ID, 
+                        AccountID: 1, 
                         ProviderID: 1
                     }, 
                     true
