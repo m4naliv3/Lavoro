@@ -3,6 +3,7 @@ import { commsClient } from '../comms_client';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { SetConversation, SetMessages } from '../actions';
+import { formatPhone } from '../functions/formatPhone';
 
 class Contact extends Component {
   render(){
@@ -10,7 +11,8 @@ class Contact extends Component {
     if(!contact) return null;
     return (
       <div 
-        className="Contact-Row" 
+        className="contact" 
+        key={contact.Phone}
         onClick={_ => { 
           commsClient('Conversations', 'POST', {ID: this.props.Account.PhoneNumberID, Phone: contact.Phone} )
           .then(conversation => { 
@@ -18,11 +20,12 @@ class Contact extends Component {
             commsClient('messages/' + conversation.ID).then(r => { this.props.SetMessages(r) }) 
           });
       }}>
-        <img src={contact.Avatar} alt="Contact Person" height="5%" width="5%"/>
-        <strong>{contact.ContactName}</strong>
-        <br />
-        <strong>Phone: </strong><span>{contact.Phone}</span>
-        <strong>Email: </strong><span>{contact.Email}</span>
+        <img src={contact.Avatar} alt="Contact Person" />
+        <div className="contact-details">
+          <h3>{contact.ContactName}</h3>
+          <p><strong>Phone: </strong><span>{formatPhone(contact.Phone)}</span></p>
+          <p><strong>Email: </strong><span>{contact.Email}</span></p>
+        </div>
       </div>
     );
   }

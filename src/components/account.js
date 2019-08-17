@@ -7,9 +7,9 @@ class Account extends Component {
       return null;
     }
     return (
-      <div className="MyUser">
-          <img src={this.props.Account.Avatar} alt="agent info" width='5%' height='5%'/>
-          <strong>{this.props.Account.UserName}</strong>
+      <div className="user-account">
+          <h2>{this.props.Account.UserName}</h2>
+          <img src={this.props.Account.Avatar} alt="agent info" />
       </div>
     );
   }

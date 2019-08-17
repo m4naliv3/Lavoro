@@ -1,4 +1,6 @@
 .contacts {
+	display: flex;
+	flex-direction: column;
 
 	.title {		
 
@@ -37,7 +39,27 @@
 	.contact-list {
 		background: #fff;
 		padding: 1em;
+		height: 100%;
 
-		padding-top: 900px;
+		.contact {
+			border-bottom: 1px solid $gray-light;
+			display: flex;
+			align-items: center;
+
+			img {
+				border-radius: 50%;
+				max-height: 90px;
+				max-width: 33%;
+			}
+
+			.contact-details {
+				flex: 1 1 60%;
+				padding: 0.3em 1em;
+
+				p {
+					margin-bottom: 0.5rem;
+				}
+			}
+		}
 	}
 }
