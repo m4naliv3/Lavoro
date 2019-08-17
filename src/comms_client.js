@@ -12,6 +12,7 @@ export async function commsClient(path, method = 'GET', args = null, noResponse 
         return data;
     }
     else if(method === 'POST'){
+        console.log('posting to comms', args)
         const headers = new Headers({
             'Access-Control-Allow-Origin':'*',
             "Content-Type": "application/x-www-form-urlencoded",
