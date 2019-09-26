@@ -8,17 +8,21 @@ import ContactList from './components/contact-list';
 import Header from './components/header';
 import MessageList from './components/message-list';
 import IconGradient from './images/lavoro-icon-gradient.png';
-import { commsClient } from './comms_client';
 import ContactModal from './components/contact-modal';
+import Auth from './auth';
 
 class Dashboard extends Component {
   render(){
     // do something with the component did mount to preload all of this crap once we have the account id back
     // we can se the contacts, phone number, etc.
     if(!this.props.Account) {
+      return(<Auth />)
+      /*
       commsClient('accounts/1').then(r => { this.props.SetAccount(r) }); 
       commsClient('phones/1').then(r => { this.props.SetAccountPhone(r.PhoneNumber) }); 
+      */
     }
+
     return (
       <div className="main-dashboard">
         <div className="container">
