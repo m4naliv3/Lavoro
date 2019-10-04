@@ -9,14 +9,18 @@ import Header from './components/header';
 import MessageList from './components/message-list';
 import IconGradient from './images/lavoro-icon-gradient.png';
 import ContactModal from './components/contact-modal';
-import Auth from './auth';
+import DeleteMe from './components/delete-me';
 
 class Dashboard extends Component {
   render(){
     // do something with the component did mount to preload all of this crap once we have the account id back
     // we can se the contacts, phone number, etc.
     if(!this.props.Account) {
-      return(<Auth />)
+      return(
+        <div>
+          <DeleteMe />
+        </div>
+      )
       /*
       commsClient('accounts/1').then(r => { this.props.SetAccount(r) }); 
       commsClient('phones/1').then(r => { this.props.SetAccountPhone(r.PhoneNumber) }); 
