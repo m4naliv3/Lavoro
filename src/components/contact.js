@@ -20,7 +20,11 @@ class Contact extends Component {
             commsClient('messages/' + conversation.ID).then(r => { this.props.SetMessages(r) }) 
           });
       }}>
-        <img src={contact.Avatar} alt="Contact Person" />
+        <div className="avatar">
+          <div className="crop">
+            <img src={contact.Avatar} alt="Contact Person" />
+          </div>
+        </div>
         <div className="contact-details">
           <h3>{contact.ContactName}</h3>
           <p><strong>Phone: </strong><span>{formatPhone(contact.Phone)}</span></p>

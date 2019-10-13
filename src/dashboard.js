@@ -3,6 +3,7 @@ import { SetMessages, SetAccountPhone, SetAccount, OpenContactModal } from './ac
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { commsClient } from './comms_client';
 import Sidebar from './containers/right-sidebar';
 import ContactList from './components/contact-list';
 import Header from './components/header';
@@ -16,15 +17,15 @@ class Dashboard extends Component {
     // do something with the component did mount to preload all of this crap once we have the account id back
     // we can se the contacts, phone number, etc.
     if(!this.props.Account) {
-      return(
-        <div>
-          <DeleteMe />
-        </div>
-      )
-      /*
-      commsClient('accounts/1').then(r => { this.props.SetAccount(r) }); 
-      commsClient('phones/1').then(r => { this.props.SetAccountPhone(r.PhoneNumber) }); 
-      */
+      // return(
+      //   <div>
+      //     <DeleteMe />
+      //   </div>
+      // )
+      
+      commsClient('accounts/2').then(r => { this.props.SetAccount(r) }); 
+      // commsClient('phones/2').then(r => { this.props.SetAccountPhone(r.PhoneNumber) }); 
+      
     }
 
     return (
