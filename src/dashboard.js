@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { SetMessages, SetAccountPhone, SetAccount } from './actions';
+import { SetMessages, SetAccountPhone, SetAccount, OpenContactModal } from './actions';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,19 +8,25 @@ import ContactList from './components/contact-list';
 import Header from './components/header';
 import MessageList from './components/message-list';
 import IconGradient from './images/lavoro-icon-gradient.png';
-import { commsClient } from './comms_client';
+import ContactModal from './components/contact-modal';
+import DeleteMe from './components/delete-me';
 
 class Dashboard extends Component {
-
-  renderList(list){ list.map(m => { return( <span>{m}</span> ) }) }
-
   render(){
     // do something with the component did mount to preload all of this crap once we have the account id back
     // we can se the contacts, phone number, etc.
     if(!this.props.Account) {
+      return(
+        <div>
+          <DeleteMe />
+        </div>
+      )
+      /*
       commsClient('accounts/1').then(r => { this.props.SetAccount(r) }); 
       commsClient('phones/1').then(r => { this.props.SetAccountPhone(r.PhoneNumber) }); 
+      */
     }
+
     return (
       <div className="main-dashboard">
         <div className="container">
@@ -32,12 +38,13 @@ class Dashboard extends Component {
                 <h2>My Contacts</h2>
               </div>
               <div className="contact-tools">
-                <FontAwesomeIcon icon="plus" />
+                <div onClick={_ => this.props.OpenContactModal(true)}><FontAwesomeIcon icon="plus" /></div>
                 <FontAwesomeIcon icon="minus" />
               </div>
               <div className="ui-scroll">                
                 <div className="contact-list">
-                <ContactList />
+                  <ContactModal />
+                  <ContactList />
                 </div>
               </div>
             </div>      
@@ -70,8 +77,10 @@ function mapStateToProps (state){
       AccountPhone: state.AccountPhone
   } 
 }
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ 
+    OpenContactModal: OpenContactModal,
     SetAccount: SetAccount,
     SetMessages: SetMessages,
     SetAccountPhone: SetAccountPhone

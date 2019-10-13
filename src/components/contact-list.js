@@ -23,7 +23,8 @@ class ContactList extends Component {
 
 function mapStateToProps (state){ 
   return { 
-    Contacts: state.Contacts 
+    Contacts: state.Contacts,
+    Account: state.Account
   } 
 }
 function mapDispatchToProps(dispatch) {

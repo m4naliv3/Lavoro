@@ -1,6 +1,6 @@
 import { encodeBody } from "./functions/urlEncodeBody";
 
-export async function commsClient(path, method = 'GET', args = null){
+export async function commsClient(path, method = 'GET', args = null, noResponse = null){
     var BaseUrl = 'https://lavorochatapp.azurewebsites.net/api';
     var url = `${BaseUrl}/${path}`
 
@@ -12,6 +12,7 @@ export async function commsClient(path, method = 'GET', args = null){
         return data;
     }
     else if(method === 'POST'){
+        console.log('posting to comms', args)
         const headers = new Headers({
             'Access-Control-Allow-Origin':'*',
             "Content-Type": "application/x-www-form-urlencoded",
@@ -24,9 +25,9 @@ export async function commsClient(path, method = 'GET', args = null){
             headers:headers, 
             body: body
         }).then(response =>{
-            return response.text();
+            if(noResponse === null){return response.text();}
         }).then(json => {
-            return JSON.parse(json);
+            if(noResponse === null){return JSON.parse(json);}
         })
         return gotFromPost;
     }
