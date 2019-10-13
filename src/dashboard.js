@@ -57,11 +57,11 @@ class Dashboard extends Component {
                 <button className="btn btn-tab btn-square">Search</button>
                 <button className="btn btn-tab btn-square">Help</button>
               </div>
-              <div className="ui-scroll"> 
+              
                 <div className="message-list">
                 <MessageList />
                 </div>
-              </div>
+
             </div>        
           </div>
         </div>

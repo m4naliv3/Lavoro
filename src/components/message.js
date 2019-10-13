@@ -5,7 +5,7 @@ export default class MessageItem extends Component {
     var message = this.props.Message;
     if(!message) return null;
     return (
-      <div className="Message-Item">
+      <div className="message-item">
         <span>{message.MessageText}</span>
         <br/>
         <span>{message.Author}</span>

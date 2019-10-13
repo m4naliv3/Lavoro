@@ -19,29 +19,43 @@ class MessageList extends Component {
     }
 
     render(){
-      if(!this.props.Messages) return null;
-      return (
-          <div>
-              {this.renderList(this.props.Messages)}
-              <br />
-              <br />
-              <input 
-                type="text" 
-                className="MessagingInput" 
-                onInput={e => {
-                  if (e.keyCode === 13) {
-                    this.sendMessage()
-                  }
-                  this.props.SetOutboundMessage(e.target.value)}
-                }
-                value={this.props.OutboundMessage}
-              />
-              <input 
-                type="button" 
-                className="Send Button" 
-                value="Send" 
-                onClick={_ => this.sendMessage()}/>
+      // eventually create & add a "No Messages" image
+      if(!this.props.Messages) {
+        return (
+          <div className="no-messages">
+            <div className="caption">
+              <h1>No Messages To Show Here</h1>
+              <p>Select a Contact on the left to start communicating!</p>
+            </div>
           </div>
+        );
+      }
+      else return (
+        <div className="messages">
+          <div className="ui-scroll"> 
+            <div>
+              {this.renderList(this.props.Messages)}
+            </div>
+          </div>
+          <div className="message-input">
+            <textarea 
+              rows={6} 
+              onChange={e => {
+                if (e.keyCode === 13) {
+                  this.sendMessage()
+                }
+                this.props.SetOutboundMessage(e.target.value)}
+              }
+              value={this.props.OutboundMessage ? this.props.OutboundMessage : ''}
+            />
+            <button 
+              className="btn btn-primary send"
+              onClick={_ => this.sendMessage()}
+            >
+              Send
+            </button>                
+          </div>
+        </div>
       )
     }
 }

@@ -2,6 +2,67 @@
 
 	.message-list {
 		background: #fff;
-		padding-top: 900px;
+
+		.no-messages {
+			padding: 20em 3em;
+			position: relative;
+
+			.caption {
+				@extend %center;
+				text-align: center;
+
+				h1 {
+					color: $primary;
+					margin-bottom: 0;
+				}
+
+				p {
+					color: $gray;
+					font-size: 1.3em;
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}
+
+.messaging {
+
+	.message-list {
+
+		.messages {
+
+			.ui-scroll {
+				max-height: calc(100vh - 500px);
+
+				> div {					
+					padding: 3em;
+				}
+			}
+
+		}
+
+		.message-input {
+			background: $gray;
+			padding: 1.5em 3em;
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-end;
+
+			textarea {
+				flex: 1;
+				resize: vertical;
+				border-radius: 2px;
+				border: none;
+
+				&:focus {
+					outline: none;
+				}
+			}
+
+			.send {
+				margin-left: 3em;
+			}
+		}
 	}
 }
