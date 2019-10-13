@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { SetConversation, SetMessages } from '../actions';
 import { formatPhone } from '../functions/formatPhone';
+import lavoroIcon from '../images/lavoro-icon.png';
 
 class Contact extends Component {
   render(){
     var contact = this.props.Contact;
+    var imgSrc = contact.Avatar ? contact.Avatar : lavoroIcon;
     if(!contact) return null;
     return (
       <div 
@@ -22,7 +24,7 @@ class Contact extends Component {
       }}>
         <div className="avatar">
           <div className="crop">
-            <img src={contact.Avatar} alt="Contact Person" />
+            <img src={imgSrc} alt="Contact Person" />
           </div>
         </div>
         <div className="contact-details">
