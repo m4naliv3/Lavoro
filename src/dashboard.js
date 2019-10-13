@@ -39,8 +39,8 @@ class Dashboard extends Component {
                 <h2>My Contacts</h2>
               </div>
               <div className="contact-tools">
-                <div onClick={_ => this.props.OpenContactModal(true)}><FontAwesomeIcon icon="plus" /></div>
-                <FontAwesomeIcon icon="minus" />
+                <span onClick={_ => this.props.OpenContactModal(true)}><FontAwesomeIcon icon="plus" /></span>
+                <span><FontAwesomeIcon icon="minus" /></span>
               </div>
               <div className="ui-scroll">                
                 <div className="contact-list">

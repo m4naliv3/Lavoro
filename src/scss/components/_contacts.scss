@@ -20,6 +20,10 @@
 	.contact-tools {
 		text-align: right;
 		margin: -20px 9px -1px 0;
+
+		div {
+			display: inline-block;
+		}
 		
 		svg {
 			background: #fff;
