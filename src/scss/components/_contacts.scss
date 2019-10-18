@@ -49,6 +49,11 @@
 			border-bottom: 1px solid $gray-light;
 			display: flex;
 			align-items: center;
+			padding: 0.5em 0;
+
+			&:last-child {
+				border-bottom: none;
+			}
 
 			.avatar {				
 				max-width: 33%;

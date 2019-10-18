@@ -15,6 +15,7 @@
 			justify-content: space-between;
 			align-items: stretch;
 			padding: 1em;
+			min-height: calc(100vh - 200px);
 
 			.contacts {
 				flex: 0 1 30%;
@@ -49,7 +50,6 @@
 }
 
 .ui-scroll {
-	max-height: calc(100vh - 250px);
 	overflow-y: scroll;
 	flex: 1;
 

@@ -1,10 +1,17 @@
 .messaging {
+	display: flex;
+	flex-direction: column;
 
 	.message-list {
 		background: #fff;
+		// display: flex;
+		// flex-direction: column;
+		// justify-content: flex-end;
+		// height: 600px;
+		height: 100%;
 
 		.no-messages {
-			padding: 20em 3em;
+			padding: 20% 3em;
 			position: relative;
 
 			.caption {
