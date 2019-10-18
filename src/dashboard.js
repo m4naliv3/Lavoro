@@ -56,12 +56,10 @@ class Dashboard extends Component {
                 <button className="btn btn-tab btn-square">Calendar</button>
                 <button className="btn btn-tab btn-square">Search</button>
                 <button className="btn btn-tab btn-square">Help</button>
-              </div>
-              
+              </div>              
                 <div className="message-list">
-                <MessageList />
+                  <MessageList />
                 </div>
-
             </div>        
           </div>
         </div>
