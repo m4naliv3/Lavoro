@@ -1,28 +1,22 @@
 .messaging {
-	display: flex;
-	flex-direction: column;
-
+	
 	.message-list {
 		background: #fff;
-		// display: flex;
-		// flex-direction: column;
-		// justify-content: flex-end;
-		// height: 600px;
-		height: 100%;
-
+		height: calc(100% - 40px);
+		position: relative;
+		
 		.no-messages {
-			padding: 20% 3em;
-			position: relative;
-
+			padding: 3em;
+			
 			.caption {
 				@extend %center;
 				text-align: center;
-
+				
 				h1 {
 					color: $primary;
 					margin-bottom: 0;
 				}
-
+				
 				p {
 					color: $gray;
 					font-size: 1.3em;
@@ -34,19 +28,33 @@
 }
 
 .messaging {
-
+	
 	.message-list {
-
+		
 		.messages {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			flex-wrap: wrap;
 
 			.ui-scroll {
-				max-height: calc(100vh - 500px);
+				flex: 1;
 
 				> div {					
 					padding: 3em;
+					height: 1500px;
 				}
 			}
 
+			.message-item {
+				margin: 1em;
+
+				.message-bubble {
+					background: $primary;
+					color: #fff;
+				}
+			}
 		}
 
 		.message-input {
