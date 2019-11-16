@@ -14,7 +14,7 @@ class Contact extends Component {
         className="contact" 
         key={contact.Phone}
         onClick={_ => { 
-          commsClient('Conversations', 'POST', {ID: this.props.Account.PhoneNumberID, Phone: contact.Phone} )
+          commsClient('Account/Conversations', 'POST', {ID: this.props.Account.PhoneNumberID, Phone: contact.Phone} )
           .then(conversation => { 
             this.props.SetConversation(conversation)
             commsClient('messages/' + conversation.ID).then(r => { this.props.SetMessages(r) }) 

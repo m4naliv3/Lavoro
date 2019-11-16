@@ -13,10 +13,16 @@ export default function Custom_Reducer(state = initialState, action) {
         return { ...state, AccountPhone: action.payload }
     case 'SET_OUTBOUND_MESSAGE':
         return { ...state, OutboundMessage: action.payload}
+    case 'SET_INBOUND_MESSAGE':
+        return { ...state, InboundMessage: action.payload }
     case 'OPEN_CONTACT_MODAL':
         return { ...state, ContactModal: action.payload}
     case 'SET_CONVERSATION':
         return { ...state, ConversationID: action.payload.ID, ContactPhone: action.payload.Phone} 
+    case 'OPEN_CREATE_ACCOUNT':
+        return {...state, CreateAccount: action.payload}
+    case 'LOGIN':
+        return {...state, Login: action.payload}
     default:
         return state;
     }

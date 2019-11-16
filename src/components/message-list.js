@@ -9,7 +9,7 @@ class MessageList extends Component {
     renderList(items){ return items.map(m => { console.log(m);return( <MessageItem key={m.ID} Message={m} /> ) }) }
 
     sendMessage(){
-      commsClient('OutgoingMessaging','POST', {
+      commsClient('Messages/Outgoing','POST', {
           MessageText: this.props.OutboundMessage, 
           Author: this.props.AccountPhone, 
           ConversationID: this.props.ConversationID

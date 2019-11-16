@@ -28,6 +28,12 @@ export function SetOutboundMessage(payload){
         payload: payload
     };
 }
+export function SetInboundMessage(payload){
+    return{
+        type: 'SET_INBOUND_MESSAGE', 
+        payload: payload
+    };
+}
 export function SetAccountPhone(payload){
     return{
         type: 'SET_ACCOUNT_PHONE', 
@@ -39,4 +45,18 @@ export function SetContacts(payload){
         type: 'SET_CONTACTS', 
         payload: payload
     };
+}
+
+export function OpenCreateAccount(payload){
+    return{
+        type: 'OPEN_CREATE_ACCOUNT',
+        payload: payload
+    }
+}
+
+export function CompleteLogin(payload){
+    return{
+        type: 'LOGIN',
+        payload: payload
+    }
 }

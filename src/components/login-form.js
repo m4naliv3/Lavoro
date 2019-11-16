@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { OpenCreateAccount, CompleteLogin } from '../actions';
+import CreateAccount from './create-account';
 
-export default class LoginForm extends Component {
+class LoginForm extends Component {
   constructor(props){
     super(props)
     this.state = {username: '', password: ''};
@@ -19,29 +23,57 @@ export default class LoginForm extends Component {
     if(target === 'password') this.setState({password: event.target.value});
   }
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Username:
-          <input
-            id="username" 
-            type="text"
-            value={this.username}
-            onChange={(e)=>{ this.handleChange('username', e) }}
-          />
-          Password:
-          <input
-            id="password" 
-            type="password"
-            onChange={(e)=>{ this.handleChange('password', e) }}
-          />
-        </label>
-        <input id="submit" 
-          type="submit" 
-          value="Submit" 
-        />
-      </form>
-    );
+  render(){
+    if(this.props.CreateAccount === true){
+      return(
+        <div><CreateAccount /></div>
+      )
+    }
+    else{
+      return (
+        <div>
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              Username:
+              <input
+                id="username" 
+                type="text"
+                value={this.username}
+                onChange={(e)=>{ this.handleChange('username', e) }}
+                />
+              Password:
+              <input
+                id="password" 
+                type="password"
+                onChange={(e)=>{ this.handleChange('password', e) }}
+                />
+            </label>
+            <input id="submit" 
+              type="submit" 
+              value="Submit"
+              onClick={() => {this.props.CompleteLogin(true)}} 
+              />
+          </form>
+          <span>Don't have an Account?</span><br />
+          <span className="nav-link" onClick={() => this.props.OpenCreateAccount(true)}>Create one now!</span>
+        </div>
+      );
+    }
   }
 };      
+
+function mapStateToProps (state){ 
+  return { 
+    CreateAccount: state.CreateAccount,
+    Login: state.Login
+  } 
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ 
+    OpenCreateAccount: OpenCreateAccount,
+    CompleteLogin: CompleteLogin
+  }, dispatch);
+}
+
+export default connect (mapStateToProps, mapDispatchToProps)(LoginForm);

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { CompleteLogin } from '../actions';
 import { commsClient } from '../comms_client';
 
-export default class CreateAccount extends Component {
+class CreateAccount extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -17,7 +20,7 @@ export default class CreateAccount extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    commsClient('Signup','POST', { 
+    commsClient('Accounts/Create','POST', { 
         Username: this.state.username, 
         Password: this.state.password,
         BusinessName: this.state.businessName,
@@ -74,8 +77,23 @@ export default class CreateAccount extends Component {
         <input id="submit" 
         type="submit" 
         value="Submit" 
+        onClick={() => {this.props.CompleteLogin(true)}}
         />
       </form>
     );
   }
 };      
+
+function mapStateToProps (state){ 
+  return { 
+    Login: state.Login
+  } 
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ 
+    CompleteLogin: CompleteLogin
+  }, dispatch);
+}
+
+export default connect (mapStateToProps, mapDispatchToProps)(CreateAccount);

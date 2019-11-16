@@ -11,7 +11,7 @@ class ProvisionNumber extends Component {
           <input type='text' placeholder='Area Code' />
           <button className="GetNumbers"
             onClick={_ => { 
-            commsClient('PhoneResource', 'POST', {value: 661} )
+            commsClient('Phones/Search', 'POST', {value: 661} )
                 .then(phones => {
                     console.log(phones); 
                     // put this into the state and render as a list

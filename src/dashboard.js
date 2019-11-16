@@ -9,24 +9,20 @@ import Header from './components/header';
 import MessageList from './components/message-list';
 import IconGradient from './images/lavoro-icon-gradient.png';
 import ContactModal from './components/contact-modal';
-import DeleteMe from './components/delete-me';
+import { commsClient } from './comms_client';
+import LoginForm from './components/login-form';
+
 
 class Dashboard extends Component {
   render(){
-    // do something with the component did mount to preload all of this crap once we have the account id back
-    // we can se the contacts, phone number, etc.
-    if(!this.props.Account) {
-      return(
-        <div>
-          <DeleteMe />
-        </div>
+    console.log('is it happening here?')
+    if(!this.props.Account){ commsClient('accounts/2').then(r => { this.props.SetAccount(r) }) } 
+    if(!this.props.AccountPhone){ commsClient('phones/1').then(r => { this.props.SetAccountPhone(r.PhoneNumber) }) }
+    if(this.props.Login !== true){
+      return (
+        <div><LoginForm /></div>
       )
-      /*
-      commsClient('accounts/1').then(r => { this.props.SetAccount(r) }); 
-      commsClient('phones/1').then(r => { this.props.SetAccountPhone(r.PhoneNumber) }); 
-      */
     }
-
     return (
       <div className="main-dashboard">
         <div className="container">
@@ -74,7 +70,8 @@ function mapStateToProps (state){
   return { 
       Messages: state.Messages, 
       Account: state.Account,
-      AccountPhone: state.AccountPhone
+      AccountPhone: state.AccountPhone,
+      Login: state.Login
   } 
 }
 

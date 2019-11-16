@@ -32,7 +32,7 @@ class ContactModal extends Component {
             onClick={_ => {
                 this.props.OpenContactModal(false);
                 commsClient(
-                    'Contacts',
+                    'Account/CreateContact',
                     'POST',
                     {
                         ContactName: this.Name,
@@ -42,7 +42,7 @@ class ContactModal extends Component {
                         Avatar: this.Avatar, 
                         Company: this.Company, 
                         Favorite: this.Favorite, 
-                        AccountID: 1, 
+                        AccountID: 2, 
                         ProviderID: 1
                     }, 
                     true

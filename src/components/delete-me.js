@@ -1,37 +1,30 @@
 import React, { Component } from 'react';
-import CreateAccount from './create-account';
-import LoginForm from './login-form';
 
 export default class DeleteMe extends Component {
-    constructor(props){
-      super(props)
-      this.state = { show: '' };
-      this.checkButton = this.checkButton.bind(this);
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            greeting: ''
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    
+    handleChange(event) {
+    this.setState({ name: event.target.value });
     }
 
-    checkButton(target) { this.setState({show: target}) }
+    handleSubmit(event) {
+    event.preventDefault();
+    fetch(`/api/greeting?name=${encodeURIComponent(this.state.name)}`)
+        .then(response => response.json())
+        .then(state => this.setState(state));
+    }
 
     render() {
-        if(this.state.show === 'login'){
-            return (
-                <div>
-                    <LoginForm />
-                </div>
-            );    
-        }
-        else if(this.state.show === 'signup'){
-            return (
-                <div>
-                    <CreateAccount />
-                </div>
-            );
-        }
-        return (
-            <div>
-                <input type="button" onClick={_=> this.checkButton('login')} value="Render Login Component" />
-                <br />
-                <input type="button" onClick={_=> this.checkButton('signup')} value="Render Signup Component" />
-            </div>
+        return(
+            <div>Thing</div>
         );
     }
 };
